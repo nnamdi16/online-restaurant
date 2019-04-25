@@ -1,50 +1,46 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import logo from './logo.svg';
 import './App.css';
 import Banner from './Components/banner/Banner';
+import Card from './Components/Card';
 import 'semantic-ui-css/semantic.min.css';
+import 'materialize-css/dist/css/materialize.min.css';
+import './css/landing-page.css';
 
 class App extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			items: [],
-			isLoaded: false
-		};
-	}
-
-	//key: '9d5c7a70d8e70cfe960d6af4f7ff3ed2'
+	state = {
+		items: []
+	};
 
 	componentDidMount() {
 		axios
-			.get('https://www.food2fork.com/api/search?key=9d5c7a70d8e70cfe960d6af4f7ff3ed2&q=shredded%20chicken')
+			.get(' http://localhost:4000/posts')
 			.then(res => {
-				console.log(res);
-				this.setState({ items: res.data });
-			});
+				let data = res.data;
+				console.log(data);
+				this.setState({
+					items: data
+				});
+			})
+			.catch(err => console.log(err));
 	}
 	render() {
+		const { items } = this.state;
+		console.log(items);
 		return (
-			<Banner />
-			// <div className="App">
-			//   <header className="App-header">
-			//     <img src={logo} className="App-logo" alt="logo" />
-			//     <p>
-			//       Edit <code>src/App.js</code> and save to reload.
-			//     </p>
-			//     <a
-			//       className="App-link"
-			//       href="https://reactjs.org"
-			//       target="_blank"
-			//       rel="noopener noreferrer"
-			//     >
-			//       Learn React
-			//     </a>
-			//   </header>
-			// </div>
+			<div>
+				<Banner />
+				{/* <h4>Found: {this.state.items.length} images</h4> */}
+				<div className="menu-display card-render">
+					<div className="row">
+						<Card items={items} />
+					</div>
+				</div>
+			</div>
 		);
 	}
 }
 
 export default App;
+
+//To change port for json server - json-server --watch db.json --port 4000
