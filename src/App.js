@@ -1,28 +1,50 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
+import Banner from './Components/banner/Banner';
+import 'semantic-ui-css/semantic.min.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			items: [],
+			isLoaded: false
+		};
+	}
+
+	//key: '9d5c7a70d8e70cfe960d6af4f7ff3ed2'
+
+	componentDidMount() {
+		axios
+			.get('https://www.food2fork.com/api/search?key=9d5c7a70d8e70cfe960d6af4f7ff3ed2&q=shredded%20chicken')
+			.then(res => {
+				console.log(res);
+				this.setState({ items: res.data });
+			});
+	}
+	render() {
+		return (
+			<Banner />
+			// <div className="App">
+			//   <header className="App-header">
+			//     <img src={logo} className="App-logo" alt="logo" />
+			//     <p>
+			//       Edit <code>src/App.js</code> and save to reload.
+			//     </p>
+			//     <a
+			//       className="App-link"
+			//       href="https://reactjs.org"
+			//       target="_blank"
+			//       rel="noopener noreferrer"
+			//     >
+			//       Learn React
+			//     </a>
+			//   </header>
+			// </div>
+		);
+	}
 }
 
 export default App;
