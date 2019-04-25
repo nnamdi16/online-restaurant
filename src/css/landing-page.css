@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* height: 100%; */
+  /* full window width */
+  text-align: center;
+}
+
+.banner-Image {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/banner-Image.jpg);
+  /* background: rgba(0, 0, 0, 0.1);
+  background-image: url(../img/banner-Image.jpg); */
+  height: 800px;
+  background-size: cover;
+  opacity: 1;
+}
+
+h1 {
+  color: black;
+  font-size: 10em;
+}
