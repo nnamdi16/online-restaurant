@@ -4,8 +4,10 @@ import './App.css';
 import Banner from './Components/banner/Banner';
 import Card from './Components/Card';
 import 'semantic-ui-css/semantic.min.css';
-import 'materialize-css/dist/css/materialize.min.css';
+// import 'materialize-css/dist/css/materialize.min.css';
 import './css/landing-page.css';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Modal from './Components/banner/Modal';
 
 class App extends Component {
 	state = {
@@ -30,12 +32,7 @@ class App extends Component {
 		return (
 			<div>
 				<Banner />
-				{/* <h4>Found: {this.state.items.length} images</h4> */}
-				<div className="menu-display card-render">
-					<div className="row">
-						<Card items={items} />
-					</div>
-				</div>
+				<Card items={items} />
 			</div>
 		);
 	}
