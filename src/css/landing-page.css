@@ -9,8 +9,6 @@ body {
 
 .banner-Image {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/banner-Image.jpg);
-  /* background: rgba(0, 0, 0, 0.1);
-  background-image: url(../img/banner-Image.jpg); */
   height: 800px;
   background-size: cover;
   opacity: 1;
@@ -19,4 +17,24 @@ body {
 h1 {
   color: black;
   font-size: 10em;
+}
+
+.menu-display {
+  margin:0 5px 0 5px;
+}
+
+.card-layout {
+  width: 220px;
+  height:250px;
+}
+.card{
+  width:85%;
+}
+
+.card-render {
+  margin: 0 0 0 60px;
+}
+
+.card-single {
+  margin: 0 0 50px 0;
 }
