@@ -9,34 +9,42 @@ import './css/landing-page.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Modal from './Components/banner/Modal';
 
-class App extends Component {
-	state = {
-		items: []
-	};
+const App = () => {
+	return (
+		<div className="ui container">
+			<Card />
+		</div>
+	);
+};
 
-	componentDidMount() {
-		axios
-			.get(' http://localhost:4000/posts')
-			.then(res => {
-				let data = res.data;
-				console.log(data);
-				this.setState({
-					items: data
-				});
-			})
-			.catch(err => console.log(err));
-	}
-	render() {
-		const { items } = this.state;
-		console.log(items);
-		return (
-			<div>
-				<Banner />
-				<Card items={items} />
-			</div>
-		);
-	}
-}
+// class App extends Component {
+// 	state = {
+// 		items: []
+// 	};
+
+// 	componentDidMount() {
+// 		axios
+// 			.get(' http://localhost:4000/posts')
+// 			.then(res => {
+// 				let data = res.data;
+// 				console.log(data);
+// 				this.setState({
+// 					items: data
+// 				});
+// 			})
+// 			.catch(err => console.log(err));
+// 	}
+// 	render() {
+// 		const { items } = this.state;
+// 		console.log(items);
+// 		return (
+// 			<div>
+// 				<Banner />
+// 				{/* <Card items={items} /> */}
+// 			</div>
+// 		);
+// 	}
+// }
 
 export default App;
 
