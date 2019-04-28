@@ -7,11 +7,26 @@ export const displayRecipes = () => async dispatch => {
 	 * with redux thunk we can manually dispatch an action 
 	 * and with getState we can read or access any data that we want
 	 * */
-	const response = await apiPlaceholder.get('/posts');
-	//Return an action
-	console.log(response);
-	dispatch({
-		type: 'RECIPES_DISPLAYED',
-		payload: response.data
-	});
+	try {
+		const response = await apiPlaceholder.get('/posts');
+		//Return an action
+		console.log(response);
+		dispatch({
+			type: 'RECIPES_DISPLAYED',
+			payload: response.data
+		});
+	} catch (error) {
+		console.log(error);
+	}
 };
+
+export const displaySingleRecipe = recipe => {
+	return {
+		type: 'SINGLE_RECIPE_DISPLAYED',
+		payload: recipe
+	};
+};
+
+// export const createRecipes = () => async dispatch => {
+// 	const response = await apiPlaceholder;
+// };
