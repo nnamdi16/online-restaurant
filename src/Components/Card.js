@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import '../css/landing-page.css';
+import '../css/card.css';
 import { Button, Icon } from 'semantic-ui-react';
 import 'materialize-css/dist/css/materialize.min.css';
+import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { displayRecipes } from '../actions';
+import { displaySingleRecipe } from '../actions';
 
 class Cards extends Component {
 	// console.log(props.items);
@@ -13,7 +15,7 @@ class Cards extends Component {
 	renderList() {
 		return this.props.display.map(food => {
 			return (
-				<div className="col s12 m4 l3 card-single">
+				<div className="col s12 m4 l3 card-single" key={food.id}>
 					<div className="card">
 						<div className="card-image">
 							<img className="card-layout" src={food.image_url} alt="food recipes" />
@@ -24,12 +26,15 @@ class Cards extends Component {
 							<p>{food.publisher}</p>
 						</div>
 						<div className="card-action">
-							<Button animated>
-								<Button.Content visible>View</Button.Content>
-								<Button.Content hidden>
-									<Icon name="arrow right" />
-								</Button.Content>
-							</Button>
+							<Link to={`/recipe/${food.id}`}>
+								<Button animated onClick={() => this.props.displaySingleRecipe(food)}>
+									<Button.Content visible>View</Button.Content>
+									<Button.Content hidden>
+										<Icon name="arrow right" />
+									</Button.Content>
+								</Button>
+							</Link>
+
 							{/* <a href="#">This is a link</a> */}
 						</div>
 					</div>
@@ -39,10 +44,11 @@ class Cards extends Component {
 	}
 
 	render() {
+		console.log(this.props);
 		console.log(this.props.display);
 
 		return (
-			<div className="menu-display card-render">
+			<div className=" ui container menu-display card-render">
 				<div className="row"> {this.renderList()}</div>
 			</div>
 		);
@@ -57,4 +63,4 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 // export default Cards;
-export default connect(mapStateToProps, { displayRecipes })(Cards);
+export default connect(mapStateToProps, { displayRecipes, displaySingleRecipe })(Cards);
