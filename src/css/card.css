@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* height: 100%; */
+  /* full window width */
+  text-align: center;
+}
+
+
+h1 {
+  color: black;
+  font-size: 10em;
+}
+
+.menu-display {
+  margin: 0 5px 0 5px;
+}
+
+.card-layout {
+  width: 220px;
+  height: 250px;
+}
+
+.card {
+  width: 85%;
+}
+
+.card-render {
+  margin: 0 0 0 60px;
+}
+
+.card-single {
+  margin: 0 0 50px 0;
+}
