@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/landing-page.css';
+import '../../css/banner.css';
 import '../../img/banner-Image.jpg';
 const Banner = () => {
 	const divStyle = {
@@ -10,7 +10,7 @@ const Banner = () => {
 			<div className="banner-Image">
 				<p>Cool Taste, Quality.</p>
 			</div>
-			<div class="ui segment" style={divStyle}>
+			<div className="ui segment" style={divStyle}>
 				<h1>Cool Taste, Quality.</h1>
 			</div>
 		</div>
