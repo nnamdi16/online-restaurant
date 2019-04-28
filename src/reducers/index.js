@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 // import axios from 'axios';
 import { combineReducers } from 'redux';
 import displayRecipesReducer from './displayRecipesReducer';
+import selectedRecipeReducer from './selectedRecipeReducer';
 
 export default combineReducers({
-	display: displayRecipesReducer
+	display: displayRecipesReducer,
+	selectedRecipe: selectedRecipeReducer
 });
 
 /**
