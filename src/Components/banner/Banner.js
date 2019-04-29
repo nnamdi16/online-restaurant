@@ -11,7 +11,7 @@ const Banner = () => {
 				<p>Cool Taste, Quality.</p>
 			</div>
 			<div className="ui segment" style={divStyle}>
-				<h1>Cool Taste, Quality.</h1>
+				<h3>Cool Taste, Quality.</h3>
 			</div>
 		</div>
 	);
