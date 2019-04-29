@@ -2,11 +2,9 @@
 // import axios from 'axios';
 import { combineReducers } from 'redux';
 import displayRecipesReducer from './displayRecipesReducer';
-import selectedRecipeReducer from './selectedRecipeReducer';
 
 export default combineReducers({
-	display: displayRecipesReducer,
-	selectedRecipe: selectedRecipeReducer
+	display: displayRecipesReducer
 });
 
 /**
