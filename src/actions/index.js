@@ -20,13 +20,15 @@ export const displayRecipes = () => async dispatch => {
 	}
 };
 
-export const displaySingleRecipe = recipe => {
-	return {
-		type: 'SINGLE_RECIPE_DISPLAYED',
-		payload: recipe
-	};
+export const createRecipes = id => async dispatch => {
+	try {
+		const response = await apiPlaceholder.get(`/posts/${id}`);
+		console.log(response);
+		dispatch({
+			type: 'SINGLE_RECIPE_DISPLAY',
+			payload: response.data
+		});
+	} catch (error) {
+		console.log(error);
+	}
 };
-
-// export const createRecipes = () => async dispatch => {
-// 	const response = await apiPlaceholder;
-// };
