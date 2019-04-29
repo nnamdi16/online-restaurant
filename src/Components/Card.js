@@ -1,41 +1,46 @@
 import React, { Component } from 'react';
-import '../css/card.css';
 import { Button, Icon } from 'semantic-ui-react';
 import 'materialize-css/dist/css/materialize.min.css';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { displayRecipes } from '../actions';
-import { displaySingleRecipe } from '../actions';
+import Banner from '../Components/banner/Banner';
+import '../css/card.css';
+import '../css/banner.css';
+import '../img/banner-Image.jpg';
 
 class Cards extends Component {
 	// console.log(props.items);
 	componentDidMount() {
 		this.props.displayRecipes();
 	}
+
 	renderList() {
-		return this.props.display.map(food => {
+		const display = this.props.display || [];
+		return display.map(recipe => {
+			// console.log(recipe);
 			return (
-				<div className="col s12 m4 l3 card-single" key={food.id}>
-					<div className="card">
-						<div className="card-image">
-							<img className="card-layout" src={food.image_url} alt="food recipes" />
-							<span className="card-title">{food.title}</span>
-						</div>
+				<div>
+					<div className="col s12 m4 l3 card-single" key={recipe.id}>
+						<div className="card">
+							<div className="card-image">
+								<img className="card-layout" src={recipe.image_url} alt="food recipes" />
+								<span className="card-title">{recipe.title}</span>
+							</div>
 
-						<div className="card-content">
-							<p>{food.publisher}</p>
-						</div>
-						<div className="card-action">
-							<Link to={`/recipe/${food.id}`}>
-								<Button animated onClick={() => this.props.displaySingleRecipe(food)}>
-									<Button.Content visible>View</Button.Content>
-									<Button.Content hidden>
-										<Icon name="arrow right" />
-									</Button.Content>
-								</Button>
-							</Link>
-
-							{/* <a href="#">This is a link</a> */}
+							<div className="card-content">
+								<p>{recipe.publisher}</p>
+							</div>
+							<div className="card-action">
+								<Link className="ui animated button" to={`/posts/${recipe.id}`}>
+									<Button animated>
+										<Button.Content visible>View</Button.Content>
+										<Button.Content hidden>
+											<Icon name="arrow right" />
+										</Button.Content>
+									</Button>
+								</Link>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -44,23 +49,21 @@ class Cards extends Component {
 	}
 
 	render() {
-		console.log(this.props);
-		console.log(this.props.display);
-
 		return (
-			<div className=" ui container menu-display card-render">
-				<div className="row"> {this.renderList()}</div>
+			<div>
+				<Banner />
+				<div className="ui container ">
+					<div className="row">{this.renderList()}</div>
+				</div>
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = (state, ownProps) => {
-	console.log(state);
+const mapStateToProps = state => {
 	return {
-		display: state.display
+		display: state.display.recipes
 	};
 };
 
-// export default Cards;
-export default connect(mapStateToProps, { displayRecipes, displaySingleRecipe })(Cards);
+export default connect(mapStateToProps, { displayRecipes })(Cards);
