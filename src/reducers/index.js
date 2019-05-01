@@ -1,10 +1,11 @@
-// import React, { Component } from 'react';
-// import axios from 'axios';
 import { combineReducers } from 'redux';
+// import { reducer as formReducer } from 'redux-form';
 import displayRecipesReducer from './displayRecipesReducer';
+import postReducer from './postReducer';
 
 export default combineReducers({
 	display: displayRecipesReducer
+	// post: postReducer
 });
 
 /**
