@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Card from './Components/Card';
 import RecipeDetails from './Components/banner/RecipeDetails';
+import PostRecipeForm from './Components/PostRecipeForm';
 
 const App = () => {
 	return (
@@ -10,6 +11,7 @@ const App = () => {
 			<BrowserRouter>
 				<Switch>
 					<Route path="/posts/:id" component={RecipeDetails} />
+					<Route path="/new" component={PostRecipeForm} />
 					<Route path="/" component={Card} />
 				</Switch>
 			</BrowserRouter>
