@@ -1,4 +1,5 @@
 import apiPlaceholder from '../apis/apiPlaceholder';
+// import axios from 'axios';
 
 //Action creator
 export const displayRecipes = () => async dispatch => {
@@ -32,3 +33,32 @@ export const createRecipes = id => async dispatch => {
 		console.log(error);
 	}
 };
+
+export const deleteRecipe = id => async dispatch => {
+	try {
+		await apiPlaceholder.delete(`/posts/${id}`);
+		dispatch({
+			type: 'DELETE_RECIPE',
+			payload: id
+		});
+	} catch (error) {
+		dispatch({
+			type: 'DELETE_RECIPE',
+			payload: id
+		});
+	}
+};
+export const postRecipe = recipe => async dispatch => {
+	try {
+		const response = await apiPlaceholder.post('/posts', recipe);
+		console.log(response.data);
+		dispatch({
+			type: 'ADD_RECIPE',
+			payload: response.data
+		});
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+// const recipeUrl = 'http://localhost:4000/posts';
