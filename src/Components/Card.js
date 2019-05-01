@@ -20,8 +20,8 @@ class Cards extends Component {
 		return display.map(recipe => {
 			// console.log(recipe);
 			return (
-				<div>
-					<div className="col s12 m4 l3 card-single" key={recipe.id}>
+				<div key={recipe.id}>
+					<div className="col s12 m4 l3 card-single">
 						<div className="card">
 							<div className="card-image">
 								<img className="card-layout" src={recipe.image_url} alt="food recipes" />
