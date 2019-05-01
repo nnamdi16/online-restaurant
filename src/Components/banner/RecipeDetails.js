@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createRecipes } from '../../actions';
+import { createRecipes, deleteRecipe } from '../../actions';
 import '../../css/singleRecipe.css';
 import { Link } from 'react-router-dom';
 import { Grid, Button, Icon } from 'semantic-ui-react';
@@ -9,6 +9,13 @@ class RecipeDetails extends Component {
 	componentDidMount() {
 		const { id } = this.props.match.params;
 		this.props.createRecipes(id);
+	}
+
+	deleteRecipeDetails() {
+		const { id } = this.props.match.params;
+		this.props.deleteRecipe(id, () => {
+			this.props.history.push('/');
+		});
 	}
 
 	render() {
@@ -37,7 +44,7 @@ class RecipeDetails extends Component {
 										<Icon name="arrow right" />
 									</Button.Content>
 								</Button>
-								<Button animated>
+								<Button animated onClick={this.deleteRecipeDetails.bind(this)}>
 									<Button.Content visible>DELETE</Button.Content>
 									<Button.Content hidden>
 										<Icon name="arrow right" />
@@ -66,4 +73,4 @@ const mapStateToProps = ({ display }, ownProps) => {
 	return { display: display.recipe };
 };
 
-export default connect(mapStateToProps, { createRecipes })(RecipeDetails);
+export default connect(mapStateToProps, { createRecipes, deleteRecipe })(RecipeDetails);
