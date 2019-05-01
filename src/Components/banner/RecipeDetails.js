@@ -31,14 +31,24 @@ class RecipeDetails extends Component {
 								<p>{display.publisher}</p>
 							</div>
 							<div className="card-action">
-								<Link className="ui animated button" to={`/posts/${display.id}`}>
-									<Button animated>
-										<Button.Content visible>View</Button.Content>
-										<Button.Content hidden>
-											<Icon name="arrow right" />
-										</Button.Content>
-									</Button>
-								</Link>
+								<Button animated>
+									<Button.Content visible>GO HOME</Button.Content>
+									<Button.Content hidden>
+										<Icon name="arrow right" />
+									</Button.Content>
+								</Button>
+								<Button animated>
+									<Button.Content visible>DELETE</Button.Content>
+									<Button.Content hidden>
+										<Icon name="arrow right" />
+									</Button.Content>
+								</Button>
+								<Button animated>
+									<Button.Content visible>UPDATE</Button.Content>
+									<Button.Content hidden>
+										<Icon name="arrow right" />
+									</Button.Content>
+								</Button>
 							</div>
 						</div>
 					</Grid.Column>
