@@ -62,4 +62,16 @@ export const postRecipe = recipe => async dispatch => {
 	}
 };
 
+export const updateRecipe = recipe => async dispatch => {
+	try {
+		const response = await apiPlaceholder.put(`/posts/${recipe.id}`, recipe);
+		dispatch({
+			type: 'UPDATE_RECIPE',
+			payload: response.data
+		});
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 // const recipeUrl = 'http://localhost:4000/posts';
