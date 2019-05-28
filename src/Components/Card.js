@@ -33,7 +33,7 @@ class Cards extends Component {
 							</div>
 							<div className="card-action">
 								<Link className="ui animated button" to={`/posts/${recipe.id}`}>
-									<Button animated>
+									<Button animated className='btn'>
 										<Button.Content visible>View</Button.Content>
 										<Button.Content hidden>
 											<Icon name="arrow right" />

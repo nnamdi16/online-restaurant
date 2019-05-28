@@ -34,13 +34,14 @@ export const createRecipes = id => async dispatch => {
 	}
 };
 
-export const deleteRecipe = id => async dispatch => {
+export const deleteRecipe = (id, callback) => async dispatch => {
 	try {
 		await apiPlaceholder.delete(`/posts/${id}`);
 		dispatch({
 			type: 'DELETE_RECIPE',
 			payload: id
 		});
+		callback();
 	} catch (error) {
 		dispatch({
 			type: 'DELETE_RECIPE',
@@ -54,6 +55,18 @@ export const postRecipe = recipe => async dispatch => {
 		console.log(response.data);
 		dispatch({
 			type: 'ADD_RECIPE',
+			payload: response.data
+		});
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export const updateRecipe = recipe => async dispatch => {
+	try {
+		const response = await apiPlaceholder.put(`/posts/${recipe.id}`, recipe);
+		dispatch({
+			type: 'UPDATE_RECIPE',
 			payload: response.data
 		});
 	} catch (error) {

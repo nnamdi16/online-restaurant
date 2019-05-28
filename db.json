@@ -15,7 +15,7 @@
       "title": "Deep Dish Fruit Pizza",
       "recipe_id": "46956",
       "image_url": "http://static.food2fork.com/fruitpizza9a19.jpg",
-      "social_rank": 100,
+      "social_rank": "80",
       "publisher_url": "http://thepioneerwoman.com"
     },
     {
@@ -269,33 +269,6 @@
       "image_url": "http://static.food2fork.com/Strawberry2BBalsamic2BPizza2Bwith2BChicken252C2BSweet2BOnion2Band2BSmoked2BBacon2B5002B300939d125e2.jpg",
       "social_rank": 99.99998682928603,
       "publisher_url": "http://closetcooking.com"
-    },
-    {
-      "publisher": "Nnamdi",
-      "title": "Bay leaf",
-      "recipe_id": "656",
-      "image_url": "www.google.com",
-      "social_rank": "23",
-      "publisher_url": "www.gamit.com",
-      "id": 31
-    },
-    {
-      "publisher": "Nnamdi",
-      "title": "Bay leaf",
-      "recipe_id": "656",
-      "image_url": "www.google.com",
-      "social_rank": "23",
-      "publisher_url": "www.gamit.com",
-      "id": 32
-    },
-    {
-      "publisher": "Nnamdi",
-      "title": "Bay leaf",
-      "recipe_id": "656",
-      "image_url": "www.google.com",
-      "social_rank": "23",
-      "publisher_url": "www.gamit.com",
-      "id": 33
     }
   ]
 }
