@@ -20,6 +20,11 @@ export default (state, action) => {
 				...state,
 				recipes: state.recipes.filter(recipe => recipe.id !== action.payload)
 			};
+		case 'UPDATE_RECIPE':
+			return {
+				...state,
+				recipe: state.recipes.map(recipe => (recipe.id === action.payload.id ? (recipe = action.payload) : recipe))
+			};
 		default:
 			return state;
 	}

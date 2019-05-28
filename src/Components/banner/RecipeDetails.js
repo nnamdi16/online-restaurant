@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { createRecipes, deleteRecipe } from '../../actions';
 import '../../css/singleRecipe.css';
 import { Link } from 'react-router-dom';
-import { Grid, Button, Icon } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
+import '../../css/card.css';
+import { white } from 'ansi-colors';
 
 class RecipeDetails extends Component {
 	componentDidMount() {
@@ -11,15 +13,16 @@ class RecipeDetails extends Component {
 		this.props.createRecipes(id);
 	}
 
-	deleteRecipeDetails() {
+	deleteRecipeDetails = () => {
 		const { id } = this.props.match.params;
 		this.props.deleteRecipe(id, () => {
 			this.props.history.push('/');
 		});
-	}
+	};
 
 	render() {
 		const { display } = this.props;
+		const { id } = this.props.match.params;
 		if (!display) {
 			return <div>Loading</div>;
 		}
@@ -38,24 +41,20 @@ class RecipeDetails extends Component {
 								<p>{display.publisher}</p>
 							</div>
 							<div className="card-action">
-								<Button animated>
-									<Button.Content visible>GO HOME</Button.Content>
-									<Button.Content hidden>
-										<Icon name="arrow right" />
-									</Button.Content>
-								</Button>
-								<Button animated onClick={this.deleteRecipeDetails.bind(this)}>
-									<Button.Content visible>DELETE</Button.Content>
-									<Button.Content hidden>
-										<Icon name="arrow right" />
-									</Button.Content>
-								</Button>
-								<Button animated>
-									<Button.Content visible>UPDATE</Button.Content>
-									<Button.Content hidden>
-										<Icon name="arrow right" />
-									</Button.Content>
-								</Button>
+								<button className="btn">
+									<Link style={{ textDecoration: 'none', color: 'white', textAlign: 'right' }} to="/">
+										{' '}
+										GO HOME
+									</Link>
+								</button>
+								<button className="btn" onClick={this.deleteRecipeDetails}>
+									DELETE
+								</button>
+								<button className="btn">
+									<Link style={{ textDecoration: 'none', color: 'white', textAlign: 'right' }} to={`/update/${id}`}>
+										UPDATE
+									</Link>
+								</button>
 							</div>
 						</div>
 					</Grid.Column>
